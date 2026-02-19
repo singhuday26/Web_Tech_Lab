@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Q4: Drag and Drop</title>
+    <style>
+      /* Styling the two large boxes */
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        display: inline-block; /* Makes them sit side-by-side */
+        margin: 20px;
+        vertical-align: top;
+      }
+
+      /* Styling the draggable item */
+      #drag-item {
+        width: 150px;
+        height: 150px;
+        background-color: #b85c38; /* Orange color */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 23px;
+        cursor: move;
+      }
+    </style>
+
+    <script>
+      // 1. Called when you start dragging the item
+      function drag(event) {
+        // Save the ID of the element we are dragging ("drag-item")
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      // 2. Called when you hover over a box
+      function allowDrop(event) {
+        // By default, HTML doesn't allow dropping. We must prevent that default.
+        event.preventDefault();
+      }
+
+      // 3. Called when you let go of the mouse
+      function drop(event) {
+        event.preventDefault();
+        // Get the ID we saved in step 1
+        var data = event.dataTransfer.getData("text");
+        // Move the element into this new box
+        event.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Drag the Orange Square into the Empty Box</h2>
+
+    <div class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div id="drag-item" draggable="true" ondragstart="drag(event)">
+        Drag Me
+      </div>
+    </div>
+
+    <div class="box" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  </body>
+</html>

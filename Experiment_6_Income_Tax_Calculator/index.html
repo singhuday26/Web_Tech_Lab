@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator FY 2025-26</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Income Tax Calculator</h1>
+        <h2>FY 2025-26 (New Regime)</h2>
+
+        <div class="calculator-box">
+            <div class="input-group">
+                <label for="income">Enter Annual Income (₹):</label>
+                <input type="number" id="income" placeholder="e.g. 1200000">
+            </div>
+
+            <button onclick="calculateTax()">Calculate Tax</button>
+
+            <div id="result" class="result-box" style="display: none;">
+                <h3>Tax Calculation Result</h3>
+                <p>Taxable Income: <span id="taxable-income">0</span></p>
+                <p>Total Tax Payable: <span id="total-tax">0</span></p>
+            </div>
+        </div>
+
+        <div class="slabs-info">
+            <h3>Tax Slabs (FY 2025-26)</h3>
+            <table>
+                <tr>
+                    <th>Income Slab</th>
+                    <th>Tax Rate</th>
+                </tr>
+                <tr>
+                    <td>0 - 4 Lakh</td>
+                    <td>Nil</td>
+                </tr>
+                <tr>
+                    <td>4 - 8 Lakh</td>
+                    <td>5%</td>
+                </tr>
+                <tr>
+                    <td>8 - 12 Lakh</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td>12 - 16 Lakh</td>
+                    <td>15%</td>
+                </tr>
+                <tr>
+                    <td>16 - 20 Lakh</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>20 - 24 Lakh</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Above 24 Lakh</td>
+                    <td>30%</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

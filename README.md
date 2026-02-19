@@ -25,4 +25,4 @@ A fully functional arithmetic calculator with a responsive UI.
 A tax calculator for FY 2025-26 (New Regime) implementing the latest tax slabs.
 
 ---
-*Submitted by: Student Name*
+*Submitted by: Uday Singh*

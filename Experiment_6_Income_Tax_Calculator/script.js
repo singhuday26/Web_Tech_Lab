@@ -1,18 +1,24 @@
 function calculateTax() {
     const incomeInput = document.getElementById('income');
-    const resultBox = document.getElementById('result');
+    const grossIncomeSpan = document.getElementById('gross-income');
     const taxableIncomeSpan = document.getElementById('taxable-income');
+    const incomeTaxSpan = document.getElementById('income-tax');
+    const cessSpan = document.getElementById('cess');
     const totalTaxSpan = document.getElementById('total-tax');
 
-    let income = parseFloat(incomeInput.value);
+    const grossIncome = parseFloat(incomeInput.value);
+    const standardDeduction = 75000;
 
     // Validate input
-    if (isNaN(income) || income < 0) {
+    if (isNaN(grossIncome) || grossIncome < 0) {
         alert("Please enter a valid positive income amount.");
         return;
     }
 
-    let tax = 0;
+    let taxableIncome = Math.max(0, grossIncome - standardDeduction);
+    let incomeForSlab = taxableIncome;
+
+    let incomeTax = 0;
 
     // FY 2025-26 New Regime Rules
     /*
@@ -25,40 +31,32 @@ function calculateTax() {
     Above 24L : 30%
     */
 
-    // Tax varies based on cascading slabs
+    if (incomeForSlab > 2400000) {
+        incomeTax += (incomeForSlab - 2400000) * 0.30;
+        incomeForSlab = 2400000;
+    }
+    if (incomeForSlab > 2000000) {
+        incomeTax += (incomeForSlab - 2000000) * 0.25;
+        incomeForSlab = 2000000;
+    }
+    if (incomeForSlab > 1600000) {
+        incomeTax += (incomeForSlab - 1600000) * 0.20;
+        incomeForSlab = 1600000;
+    }
+    if (incomeForSlab > 1200000) {
+        incomeTax += (incomeForSlab - 1200000) * 0.15;
+        incomeForSlab = 1200000;
+    }
+    if (incomeForSlab > 800000) {
+        incomeTax += (incomeForSlab - 800000) * 0.10;
+        incomeForSlab = 800000;
+    }
+    if (incomeForSlab > 400000) {
+        incomeTax += (incomeForSlab - 400000) * 0.05;
+    }
 
-    // Note: The logic commonly used is that if income is > 4L, you pay 5% on income minus 4L, etc.
-    // However, income up to 7 Lakh is usually rebate-free (Section 87A) in previous years, 
-    // but here we Strictly follow the provided SLAB table without assuming 87A unless specified. 
-    // The image just lists Slabs. I will strictly follow the Slabs.
-
-    // BUT usually, if you fall in 0-4L, tax is 0.
-    // If you have 5L. Tax on first 4L is 0. Tax on next 1L is 5%. Total = 5000.
-
-    if (income > 2400000) {
-        tax += (income - 2400000) * 0.30;
-        income = 2400000;
-    }
-    if (income > 2000000) {
-        tax += (income - 2000000) * 0.25;
-        income = 2000000;
-    }
-    if (income > 1600000) {
-        tax += (income - 1600000) * 0.20;
-        income = 1600000;
-    }
-    if (income > 1200000) {
-        tax += (income - 1200000) * 0.15;
-        income = 1200000;
-    }
-    if (income > 800000) {
-        tax += (income - 800000) * 0.10;
-        income = 800000;
-    }
-    if (income > 400000) {
-        tax += (income - 400000) * 0.05;
-        income = 400000;
-    }
+    const cess = incomeTax * 0.04;
+    const finalTax = incomeTax + cess;
 
     // Format currency
     const formatter = new Intl.NumberFormat('en-IN', {
@@ -67,8 +65,9 @@ function calculateTax() {
         minimumFractionDigits: 0
     });
 
-    taxableIncomeSpan.textContent = formatter.format(parseFloat(incomeInput.value));
-    totalTaxSpan.textContent = formatter.format(tax);
-
-    resultBox.style.display = 'block';
+    grossIncomeSpan.textContent = formatter.format(grossIncome);
+    taxableIncomeSpan.textContent = formatter.format(taxableIncome);
+    incomeTaxSpan.textContent = formatter.format(incomeTax);
+    cessSpan.textContent = formatter.format(cess);
+    totalTaxSpan.textContent = formatter.format(finalTax);
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator FY 2025-26</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sample Income Tax Calculator</h1>
+
+        <div class="card">
+            <div class="card-title">Income Tax Calculator</div>
+
+            <div class="section-title">Personal Details:</div>
+            <div class="input-row">
+                <input type="text" id="name" placeholder="Enter Your Name">
+            </div>
+
+            <div class="section-title">Income Details:</div>
+            <div class="input-row income-field">
+                <label for="income">Gross Annual Salary:</label>
+                <div class="amount-input-wrap">
+                    <span class="prefix">₹</span>
+                    <input type="number" id="income" placeholder="">
+                </div>
+            </div>
+
+            <div class="section-title">Deduction:</div>
+            <div class="input-row deduction-row">
+                <div class="deduction-pill">Standard Deduction: ₹ 75,000</div>
+            </div>
+
+            <div class="btn-wrap">
+                <button onclick="calculateTax()">Calculate Tax</button>
+            </div>
+
+            <div id="result" class="result-box">
+                <div class="result-title">Result:</div>
+                <div class="result-row">
+                    <span>Gross Income:</span>
+                    <span id="gross-income">₹ 0</span>
+                </div>
+                <div class="result-row">
+                    <span>Standard Deduction:</span>
+                    <span id="standard-deduction">₹ 75,000</span>
+                </div>
+                <div class="result-row">
+                    <span>Taxable Income:</span>
+                    <span id="taxable-income">₹ 0</span>
+                </div>
+                <div class="result-row">
+                    <span>Income Tax:</span>
+                    <span id="income-tax">₹ 0</span>
+                </div>
+                <div class="result-row">
+                    <span>Cess (4%):</span>
+                    <span id="cess">₹ 0</span>
+                </div>
+                <div class="result-row final-row">
+                    <span>Final Tax Payable:</span>
+                    <span id="total-tax">₹ 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

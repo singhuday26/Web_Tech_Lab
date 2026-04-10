@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "department": "CSE",
+    "cgpa": 8.7
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "department": "ECE",
+    "cgpa": 7.9
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "department": "ME",
+    "cgpa": 8.2
+  },
+  {
+    "id": 4,
+    "name": "David",
+    "department": "IT",
+    "cgpa": 8.4
+  }
+]

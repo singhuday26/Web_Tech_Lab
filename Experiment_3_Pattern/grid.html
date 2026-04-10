@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        display: flex;
+        /* 1. Stacks items (Heading on top of Grid) */
+        flex-direction: column;
+        /* 2. Centers them vertically and horizontally */
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif; /* Makes the font look cleaner */
+      }
+
+      h1 {
+        margin-bottom: 50px; /* Adds space between Heading and Grid */
+        color: #333;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(6, 50px);
+        grid-template-rows: repeat(5, 50px);
+        gap: 2px;
+        background-color: white;
+        /* Optional: Adds a border around the whole grid */
+        /* border: 5px solid white; */
+      }
+
+      .grid div {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* The 3 Colors */
+      .c1 {
+        background-color: #d37348;
+      } /* Medium */
+      .c2 {
+        background-color: #f1bfa8;
+      } /* Light */
+      .c3 {
+        background-color: #964323;
+      } /* Dark */
+    </style>
+  </head>
+  <body>
+    <h1>5 X 6 Gridbox using HTML and CSS</h1>
+
+    <div class="grid">
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c1"></div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+<div class = "square black"></div>
+square and black , 2 different classes? or invalid class name, 
+and box is due to padding and other attributes declared above??
+
+create chess game using JS
+
+row or col, which is mandatory?
+-->
